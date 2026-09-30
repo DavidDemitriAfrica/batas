@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+.DS_Store
+
+# Raw pages are large and are refetched by pipeline/run_all.py.
+# Every download is recorded in data/provenance.jsonl.
+data/raw/lawphil/
+data/raw/chanrobles/
+data/raw/open-congress-data/
+# OpenHalalan is not redistributed here; authors.py downloads it from the
+# canonical release on demand (see data/provenance.jsonl).
+data/raw/openhalalan/
+
+# Intermediate files are rebuilt by the pipeline, except the ones below,
+# which let the tables be rebuilt without the raw pages.
+data/interim/*
+!data/interim/ra_index.json
+!data/interim/ra_gaps.json
+!data/interim/act_facts.json
+!data/interim/house_bills.csv.gz
+!data/interim/house_people.json

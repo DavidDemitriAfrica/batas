@@ -1,0 +1,14 @@
+{
+ "first": {
+  "n": 400,
+  "category": 0.915,
+  "scope": 0.9675,
+  "note": "hand labels vs the first version of the rules"
+ },
+ "second": {
+  "n": 200,
+  "category": 0.92,
+  "scope": 0.985,
+  "note": "fresh sample, current rules, titles as sampled"
+ }
+}

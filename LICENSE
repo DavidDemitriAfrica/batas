@@ -1,0 +1,38 @@
+MIT License (code)
+
+Copyright (c) 2026 David Demitri Africa
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Data license
+
+The derived data in data/ and docs/ is made available under the Open Database
+License (ODbL) v1.0. It combines:
+
+- the text of Philippine Republic Acts, which as works of the Government of the
+  Philippines are not subject to copyright (Intellectual Property Code, Sec. 176),
+  as published by the LawPhil Project and the Chan Robles Virtual Law Library;
+- House bill records from BetterGov's open-congress-data (CC0);
+- election winners from OpenHalalan (Leung et al. 2026, ODbL);
+- towns, former names and census populations from the Philippine Internal
+  Migration Dataset (ODbL, built from Philippine Statistics Authority sources);
+- DepEd's school enrolment files and PhilHealth's list of accredited hospitals;
+- PSA 2023 boundaries via faeldon/philippines-json-maps.

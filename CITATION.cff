@@ -1,0 +1,51 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+title: "Batas: what does the Philippine Congress actually pass?"
+type: dataset
+authors:
+  - family-names: Africa
+    given-names: David Demitri
+date-released: 2026-09-30
+license: ODbL-1.0
+repository-code: "https://github.com/DavidDemitriAfrica/batas"
+url: "https://daviddemitriafrica.github.io/batas/"
+abstract: >
+  Every Philippine Republic Act from 1946 to 2026, classified by what it does,
+  placed on a map, linked to the House bills and authors behind it, and checked
+  against DepEd's school lists and PhilHealth's hospital list.
+keywords:
+  - Philippines
+  - Congress
+  - legislation
+  - Republic Acts
+  - local bills
+  - political dynasties
+references:
+  - type: dataset
+    title: "OpenHalalan: The Philippine National and Local Election Dataset"
+    authors:
+      - family-names: Leung
+        given-names: Robert
+      - family-names: Alejandro
+        given-names: Aldie
+      - family-names: Acuna
+        given-names: Rafael
+      - family-names: Buot
+        given-names: Jude
+      - family-names: Go
+        given-names: Clark
+      - family-names: Nable
+        given-names: Job
+    doi: 10.5281/zenodo.17783099
+    repository-code: "https://github.com/RobertRLeung/OpenHalalan"
+  - type: dataset
+    title: "open-congress-data"
+    authors:
+      - name: "BetterGov.ph"
+    repository-code: "https://github.com/bettergovph/open-congress-data"
+  - type: dataset
+    title: "Philippine Internal Migration Dataset"
+    authors:
+      - family-names: Africa
+        given-names: David Demitri
+    repository-code: "https://github.com/DavidDemitriAfrica/philippines-internal-migration"
