@@ -17,7 +17,7 @@ and linked laws to their principal authors and to OpenHalalan's election records
 
 Some findings:
 
-- From 2004 to 2025, 71% of new laws were local, but they took up only 24% of the
+- From 2004 to 2025, 71% of new laws were local, but they took up only 23% of the
   Senate's days of debate. National laws were 20% of the total and took up 71%.
   The president certified 121 of these laws as urgent, and 111 of them were
   national.
@@ -27,12 +27,12 @@ Some findings:
 - For 85% of the laws from 1987 to 2023 that establish, separate or convert a
   public school, DepEd lists a school with that name in the right town. Of those
   passed since 2019, 68% were on DepEd's list before the law was approved.
-- Members of the 8th Congress (1987 to 1992) filed 35,168 bills, and 87% of them
-  were for a single place. That Congress passed 786 local laws, so no more than 3
+- Members of the 8th Congress (1987 to 1992) filed 35,168 bills, and 86% of them
+  were for a single place. That Congress passed 783 local laws, so no more than 3
   in 100 of those bills became law.
 - Representatives in family seats, where someone with the same surname held
   office in the same province, did not author more local laws than other
-  representatives (1.21 against 1.30 per term, with overlapping intervals).
+  representatives (1.20 against 1.30 per term, with overlapping intervals).
 - 506 laws were approved on June 21, 1969. Under Fidel Ramos, 626 laws, 59% of
   those passed in his term, took effect without his signature.
 

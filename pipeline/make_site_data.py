@@ -346,6 +346,9 @@ def main():
         "certified_debate_days": sum(int(r["debate_days"]) for r in cert),
         "certified_local": [{"ra": int(r["ra"]), "year": law_by_ra[int(r["ra"])]["year"], "title": law_by_ra[int(r["ra"])]["title"]}
                             for r in eff if r["certified"] and r["scope"] == "local"],
+        # the local laws senators did debate, by kind
+        "debated_local": Counter(r["category"] for r in eff
+                                 if r["scope"] == "local" and r["debate_days"] and int(r["debate_days"])).most_common(),
         "biggest_third_day": third_days.most_common(1)[0],
         "top": [{"ra": int(r["ra"]), "title": law_by_ra[int(r["ra"])]["title"], "year": law_by_ra[int(r["ra"])]["year"],
                  "floor_days": int(r["floor_days"]), "debate_days": int(r["debate_days"]), "certified": bool(r["certified"])}

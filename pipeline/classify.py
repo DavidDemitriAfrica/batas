@@ -48,8 +48,12 @@ LOCAL_MARK = re.compile(
 
 # Words that mark a national-scope law even when a place is named in passing.
 NATIONAL_HINT = re.compile(
-    r"\b(of the philippines|nationwide|in the philippines|throughout the (country|philippines)|all (cities|municipalities|provinces)|"
+    r"\b(of the philippines|nationwide|in the philippines|throughout the (country|philippines)|all (cities|municipalities|provinces|barangays)|"
     r"(every|each) (city|municipality|province|barangay|region)|conference|embassy|legation|consulate)\b", re.I)
+
+# Wording that applies a local kind of law to the whole country.
+EVERYWHERE = re.compile(r"\b((all|every|each) (barangays?|cities|city|municipalit(y|ies)|provinces?|regions?)|nationwide|"
+                        r"throughout the (country|philippines)|(in )?the entire country)\b", re.I)
 
 SCHOOL = (r"(high ?school|elementary school|integrated school|primary school|central school|community school|paaralan|"
           r"science high\b|national (high school|trade|vocational|agricultural|fishery|comprehensive|school)\b|"
@@ -162,9 +166,11 @@ PROVINCE_NAMES = "|".join(sorted([
 PLACE_WORD = r"(?:municipality|province|city|barangay|barrio|sitio|town|island|islands|municipal district|poblacion|district)"
 # A named place: "Municipality of Baler", "Barangay Tamdagan", "Iligan City",
 # "Metro Manila". Place words match in any case; the name must be capitalised.
+# "Barangay Officials" or "Barangay Elections" are offices and events, not places.
 SPECIFIC_PLACE = re.compile(
     r"(\b(?i:" + PLACE_WORD + r")s? (?i:of) (?:(?i:the) )?[A-Z]"
-    r"|\b(?i:barangays?|barrios?|sitios?) [A-Z]"
+    r"|\b(?i:barangays?|barrios?|sitios?) (?!(?:Officials?|Elections?|Health|Roads?|Captains?|Chair\w*|Tanods?|Councils?|"
+    r"Workers?|Level|Justice|Kagawads?|Secretar\w*|Treasurer\w*|Nutrition)\b)[A-Z]"
     r"|\b(?!(?:Component|Chartered|Urbanized|Independent|Said|Such|New|Each|Every|Any|Capital|Inner|Mother|Highly|The|A|Of)\b)"
     r"[A-Z][a-zñ]+(?: (?!(?:Component|Chartered|Urbanized|Independent)\b)[A-Z][a-zñ]+)? (?i:city)\b"
     r"|\b(?i:metro(?:politan)? manila)\b|\b(?i:city|mayor|vice-mayor|municipal board|auditor|treasurer|charter|fiscal|engineer) (?i:of) Manila\b"
@@ -289,6 +295,8 @@ def classify_title(title):
         cat = "national"  # amends the rules for every town, such as the income test for cityhood
     if cat is None:
         cat = "other_local" if (has_place and not NATIONAL_HINT.search(t)) else "national"
+    elif CATEGORIES[cat][1] == "local" and not has_place and EVERYWHERE.search(t):
+        cat = "national"  # a local kind of law applied everywhere, such as concrete roads in all barangays
     if cat == "commemoration" and has_place and not re.search(r"\b(national|philippine|international|world)\b", t, re.I):
         cat = "holiday"
     return cat

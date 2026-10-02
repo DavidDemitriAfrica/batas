@@ -71,7 +71,7 @@
     <div class="step" data-step="2">
       <div class="card">
         <p class="stepno">02</p>
-        <p>About a quarter of the laws, <b class="hl hl-national" data-bind="national">3,032</b>, are
+        <p>About a quarter of the laws, <b class="hl hl-national" data-bind="national">3,048</b>, are
           <strong>national</strong>. Budgets and tax laws are in this group.</p>
       </div>
     </div>
@@ -86,7 +86,7 @@
     <div class="step" data-step="4">
       <div class="card">
         <p class="stepno">04</p>
-        <p>The remaining <b class="hl hl-local" data-bind="local">7,423</b> are <strong>local</strong>.
+        <p>The remaining <b class="hl hl-local" data-bind="local">7,407</b> are <strong>local</strong>.
           Each of these is about one particular place.</p>
         <p>Local laws far outnumber national ones but take much less of the Senate's time. Since 2004,
           national laws have accounted for <b data-bind="e_nat_debate">71%</b> of the days the Senate
@@ -115,7 +115,7 @@
       <div class="card">
         <p class="stepno">07</p>
         <p>The share of local laws varies by Congress. In the 8th Congress (1987 to 1992), the first under
-          the current constitution, <b data-bind="c8_local">79%</b> of its <b data-bind="c8_n">999</b>
+          the current constitution, <b data-bind="c8_local">78%</b> of its <b data-bind="c8_n">999</b>
           laws were local. The 14th (2007 to 2010) had the highest share since then, at
           <b data-bind="c14_local">84%</b>.</p>
       </div>
@@ -205,13 +205,13 @@
         filed in the House of Representatives since 1987. We classified them with the same rules we
         used for the laws.</p>
       <p>In the 8th Congress alone, members filed <b data-bind="c8_bills">35,168</b> bills. Of these,
-        <b data-bind="c8_bills_local_share">87%</b> asked for something in a single place, often a
-        school building or a road. That Congress passed <b data-bind="c8_local_laws">786</b> local
+        <b data-bind="c8_bills_local_share">86%</b> asked for something in a single place, often a
+        school building or a road. That Congress passed <b data-bind="c8_local_laws">783</b> local
         laws, so no more than <b data-bind="c8_pass_max">3</b> in 100 of these bills became law.</p>
-      <p>Local bills peaked in <b data-bind="peak_year">1988</b>, when <b data-bind="peak_local">15,181</b>
+      <p>Local bills peaked in <b data-bind="peak_year">1988</b>, when <b data-bind="peak_local">15,150</b>
         were filed. By 1990 the number had dropped. That was the year the national budget began giving
         each member a lump sum for projects in their district, the Countrywide Development Fund, which
-        later became the PDAF. No year since has had more than <b data-bind="peak_after">5,284</b>
+        later became the PDAF. No year since has had more than <b data-bind="peak_after">5,266</b>
         local bills.</p>
     </div>
     <div class="wrap wide">
@@ -223,7 +223,7 @@
             record doesn't say which bills passed, so the bright squares are spread evenly.</p>
         </figcaption>
         <div class="legend" id="wafflelegend"></div>
-        <div class="chart" id="waffle" role="img" aria-label="Waffle chart of 35,168 House bills filed in the 8th Congress. 30,509 are local; the number of local laws passed, 786, is highlighted."></div>
+        <div class="chart" id="waffle" role="img" aria-label="Waffle chart of 35,168 House bills filed in the 8th Congress. 30,389 are local; the number of local laws passed, 783, is highlighted."></div>
         <div class="wish">
           <p class="eyebrow small">A local bill from the 8th Congress</p>
           <p class="wishtext" id="wish" aria-live="polite"></p>
@@ -273,7 +273,7 @@
         of the <b data-bind="e_n">2,980</b> laws passed from then until 2025.</p>
       <p>In that period <b data-bind="e_loc_laws">71%</b> of new laws were local, but they took up
         <b data-bind="e_loc_floor">59%</b> of the Senate's floor days and only
-        <b data-bind="e_loc_debate">24%</b> of its days of debate. National laws were
+        <b data-bind="e_loc_debate">23%</b> of its days of debate. National laws were
         <b data-bind="e_nat_laws">20%</b> of the total and took up <b data-bind="e_nat_debate">71%</b>
         of the days of debate.</p>
     </div>
@@ -293,12 +293,21 @@
     </div>
     <div class="wrap">
       <p>Floor days overstate the time spent on local laws. The Senate handles them in batches, and
-        every bill in a batch is credited with the whole day. Of the <b data-bind="e_loc_linked">2,095</b>
+        every bill in a batch is credited with the whole day. Of the <b data-bind="e_loc_linked">2,090</b>
         local laws, <b data-bind="e_batch">964</b> were presented in one speech covering many bills or
         approved together in a single motion. On the day a typical local law passed third reading,
         <b data-bind="e_tr_loc">23</b> other future laws passed with it. For a typical national law the
         number was <b data-bind="e_tr_nat">4</b>. On <b data-bind="e_bigday">January 31, 2022</b>, the
         Senate passed <b data-bind="e_bigday_n">151</b> bills on third reading that later became law.</p>
+      <p>Some local laws were debated. Senators questioned the sponsors of
+        <b data-bind="e_deb_n">226</b> of them, and the most common kind was a town holiday
+        (<b data-bind="e_deb_hol">40</b> laws, mostly in two batches in 2007 and 2024), ahead of schools
+        (<b data-bind="e_deb_sch">38</b>). The local law with the most days of debate was RA 9728 (2009),
+        which turned the Bataan Economic Zone in Mariveles into the Freeport Area of Bataan. Next came two
+        laws that redrew House districts. RA 9716 split Camarines Sur's districts and was upheld by the
+        Supreme Court in <i>Aquino III v. COMELEC</i> (2010). RA 9591 gave Malolos City its own district
+        and was struck down in <i>Aldaba v. COMELEC</i> (2010), because the city had fewer than the 250,000
+        people the Constitution requires.</p>
       <p>The president can also certify a bill as urgent. This lets each chamber hold the second and third
         readings on the same day instead of on separate days. Of the <b data-bind="e_cert">121</b> laws
         certified this way since 2004, <b data-bind="e_cert_nat">111</b> were national. The
@@ -397,8 +406,8 @@
       <p class="eyebrow">Authors</p>
       <h2>Who writes local laws</h2>
       <p class="lede">Since 2004 the House record has named a principal author for each bill. We traced
-        <b data-bind="a_laws">2,095</b> local laws back to their House bills, and matched
-        <b data-bind="a_laws_district">1,746</b> of them to a district representative in OpenHalalan's
+        <b data-bind="a_laws">2,090</b> local laws back to their House bills, and matched
+        <b data-bind="a_laws_district">1,741</b> of them to a district representative in OpenHalalan's
         election data, which gives the province each one represents.</p>
       <p>It is often said that political families use local laws to reward their supporters. We tested a
         simple version of this. We counted a seat as a family seat if someone else with the
@@ -407,7 +416,7 @@
         two previous elections. By that rule, <b data-bind="a_famshare">50%</b> of district terms were
         family seats.</p>
       <p>Representatives in family seats did not author more local laws. They averaged
-        <b data-bind="a_fam">1.21</b> per term, compared with <b data-bind="a_oth">1.30</b> for everyone
+        <b data-bind="a_fam">1.20</b> per term, compared with <b data-bind="a_oth">1.30</b> for everyone
         else, and the confidence intervals overlap. The difference also changes direction between
         Congresses: <span data-bind="a_pattern">family seats averaged more in two Congresses, about the
         same in two, and fewer in three</span>.</p>

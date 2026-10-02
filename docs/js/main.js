@@ -111,6 +111,10 @@
       B.bind("e_tr_nat", fmt(S.national.third_with_median - 1));
       B.bind("e_bigday", B.dateText(E.biggest_third_day[0]));
       B.bind("e_bigday_n", fmt(E.biggest_third_day[1]));
+      const deb = new Map(E.debated_local || []);
+      B.bind("e_deb_n", fmt(d3.sum(deb.values())));
+      B.bind("e_deb_hol", fmt(deb.get("holiday") || 0));
+      B.bind("e_deb_sch", fmt(deb.get("school") || 0));
       const cert = tot("certified");
       B.bind("e_cert", fmt(cert));
       B.bind("e_cert_nat", fmt(S.national.certified));
