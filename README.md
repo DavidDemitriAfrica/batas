@@ -6,45 +6,45 @@
 
 ![Every Republic Act, 1946 to 2026, one dot per law](docs/assets/hero.png)
 
-Since 1946 the Philippines has enacted 12,322 Republic Acts. We collected every
-one, sorted them by what they do using their titles, and found that six in ten
-are about a single named place: one school, one hospital, one road, one new
-barangay, one town's holiday. Since 1987 the share is seven in ten.
+The Philippines has passed 12,322 Republic Acts since 1946. We collected all of
+them and sorted them by subject using their titles. Six in ten concern a single
+place, most often a school, and since 1987 the share is seven in ten.
 
-We then put those laws on a map, followed 143,156 House bills from filing to
-law, weighed each law since 2004 by the days the Senate spent on it, checked the
-schools and hospitals the laws promise against DepEd's and PhilHealth's lists,
-and linked each law to its principal author and to OpenHalalan's record of who
-holds office in each province.
+We also mapped the local laws, followed 143,156 House bills from filing to law,
+measured how many days the Senate spent on each law since 2004, checked the
+schools and hospitals named in the laws against DepEd's and PhilHealth's lists,
+and linked laws to their principal authors and to OpenHalalan's election records.
 
-A few findings:
+Some findings:
 
-- From 2004 to 2025, local laws were 71% of the laws passed but took 24% of the
-  Senate's days of debate. National laws were 20% of the laws and took 71%. Of
-  the 121 laws the President certified as urgent, 111 were national.
-- We matched 53 government hospitals whose bed capacity Congress raised by law
-  since 2016 to PhilHealth's list. 47 of them are accredited for fewer beds than
-  the law says: 19,807 accredited beds against 32,430 promised.
-- 85% of the laws from 1987 to 2023 that establish, separate or convert a public
-  school name one DepEd lists in that town. Of those passed since 2019, 68% were
-  already in DepEd's list before the law.
-- In the 8th Congress (1987 to 1992), members filed 35,168 bills, 87% of them
-  for one local project. That Congress passed 786 local laws, so at most 3 in 100
-  of those bills became law.
-- Seats held by political families did not produce more local laws than other
-  seats (1.21 against 1.30 per term, with overlapping intervals).
-- On June 21, 1969, 506 laws were approved in a single day. Fidel Ramos let 626
-  laws, 59% of those in his term, take effect without his signature.
+- From 2004 to 2025, 71% of new laws were local, but they took up only 24% of the
+  Senate's days of debate. National laws were 20% of the total and took up 71%.
+  The president certified 121 of these laws as urgent, and 111 of them were
+  national.
+- We found 53 government hospitals whose bed capacity was raised by law since
+  2016. 47 of them are accredited by PhilHealth for fewer beds than the law
+  sets, and together they have 19,807 accredited beds against 32,430 in law.
+- For 85% of the laws from 1987 to 2023 that establish, separate or convert a
+  public school, DepEd lists a school with that name in the right town. Of those
+  passed since 2019, 68% were on DepEd's list before the law was approved.
+- Members of the 8th Congress (1987 to 1992) filed 35,168 bills, and 87% of them
+  were for a single place. That Congress passed 786 local laws, so no more than 3
+  in 100 of those bills became law.
+- Representatives in family seats, where someone with the same surname held
+  office in the same province, did not author more local laws than other
+  representatives (1.21 against 1.30 per term, with overlapping intervals).
+- 506 laws were approved on June 21, 1969. Under Fidel Ramos, 626 laws, 59% of
+  those passed in his term, took effect without his signature.
 
 ## The site
 
-`docs/` is a static site for GitHub Pages. The opening story draws every law as
-one particle in WebGL (`docs/js/story.js`) and moves the same particles between a
-timeline, blocks by kind, a map, columns by Congress and towers by signing day
-as you scroll. `docs/js/explore.js` is the town map and search, and
-`docs/js/charts.js` the charts below it. The numbers the page quotes are read
-from `docs/data/*.json`, which `pipeline/make_site_data.py` writes, so they
-update when the data is rebuilt.
+`docs/` is a static site for GitHub Pages. The opening story draws each law as a
+particle in WebGL (`docs/js/story.js`). As you scroll, the particles rearrange
+into a timeline, groups by kind, a map, columns by Congress and stacks by signing
+day. `docs/js/explore.js` runs the town map and search, and `docs/js/charts.js`
+draws the charts below it. The page reads its numbers from `docs/data/*.json`,
+which `pipeline/make_site_data.py` writes, so they update when the data is
+rebuilt.
 
 To preview it locally:
 

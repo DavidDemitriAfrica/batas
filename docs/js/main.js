@@ -28,7 +28,7 @@
     if (tops.length) {
       const nm = t => B.townName(D.laws.towns[t][1]);
       const [t1, n1] = tops[0], [t2, n2] = tops[1] || [null, -1];
-      B.bind("top_towns", n1 === n2 ? `${nm(t1)} and ${nm(t2)} lead, with ${fmt(n1)} laws each.` : `${nm(t1)} leads, with ${fmt(n1)} laws.`);
+      B.bind("top_towns", n1 === n2 ? `${nm(t1)} and ${nm(t2)} have the most, with ${fmt(n1)} each.` : `${nm(t1)} has the most, with ${fmt(n1)}.`);
     }
     // local share by Congress
     const share = c => {
@@ -59,7 +59,7 @@
       B.bind("peak_local", fmt(pn));
       B.bind("peak_after", fmt(d3.max(Array.from(perYear.entries()).filter(([y]) => y > py), d => d[1]) || 0));
     }
-    B.bind("c8_one_in", `about one in every ${Math.round(e8.filed.filed_local / Math.max(1, e8.laws.local || 0))}`);
+    B.bind("c8_one_in", fmt(Math.round(e8.filed.filed_local / Math.max(1, e8.laws.local || 0))));
     // hospitals
     const rec = D.hospitals.beds.filter(b => b.year >= 2016), old = rec.filter(b => b.year <= 2022);
     B.bind("h_n", fmt(rec.length));
@@ -106,17 +106,17 @@
       B.bind("e_nat_debate", pct(S.national.debate_days / debate));
       B.bind("e_batch", fmt(S.local.batch));
       B.bind("e_loc_linked", fmt(S.local.linked));
-      B.bind("e_tr_loc", fmt(S.local.third_with_median));
-      B.bind("e_tr_nat", fmt(S.national.third_with_median));
+      // the median counts the law itself; the text gives the others passed that day
+      B.bind("e_tr_loc", fmt(S.local.third_with_median - 1));
+      B.bind("e_tr_nat", fmt(S.national.third_with_median - 1));
       B.bind("e_bigday", B.dateText(E.biggest_third_day[0]));
       B.bind("e_bigday_n", fmt(E.biggest_third_day[1]));
       const cert = tot("certified");
       B.bind("e_cert", fmt(cert));
       B.bind("e_cert_nat", fmt(S.national.certified));
-      const cl = E.certified_local, ys = cl.map(c => c.year);
-      const k = WORDS[cl.length] ? WORDS[cl.length][0].toUpperCase() + WORDS[cl.length].slice(1) : fmt(cl.length);
-      B.bind("e_cert_local", !cl.length ? "None were local." : cl.length === 1 ? `One was local, from ${ys[0]}.`
-        : `${k} were local, all from ${d3.min(ys)} to ${d3.max(ys)}.`);
+      const ys = E.certified_local.map(c => c.year);
+      B.bind("e_cert_local_n", WORDS[ys.length] || fmt(ys.length));
+      B.bind("e_cert_local_years", `${d3.min(ys)} to ${d3.max(ys)}`);
       B.bind("e_cert_share", pct(cert / laws));
       B.bind("e_cert_floor", pct(E.certified_floor_days / floor));
       B.bind("e_cert_debate", pct(E.certified_debate_days / debate));

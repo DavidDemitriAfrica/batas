@@ -171,7 +171,7 @@
       const c = fam === "all" ? B.tok("--glow") : B.famColors()[+fam];
       lg.append(B.el("span", {}, B.el("span", {class: "dot", style: `background:${c};width:7px;height:7px`}), document.createTextNode("One local law, at the town it names")));
       const n = rows.filter(keep).length;
-      note.textContent = `${B.fmt(drawn.length)} of ${B.fmt(n)} local laws are on the map. The rest name no place we could match; a law that names only a province sits at a random spot inside it.`;
+      note.textContent = `${B.fmt(drawn.length)} of ${B.fmt(n)} local laws are on the map. We couldn't match a place for the rest. Laws that name only a province are placed at a random point inside it.`;
       return;
     }
     const qs = scale.quantiles();
@@ -179,7 +179,7 @@
     const edges = [dom[0], ...qs, dom[dom.length - 1]];
     const f = v => v < 10 ? v.toFixed(1) : Math.round(v);
     steps.forEach((c, i) => lg.append(B.el("span", {}, B.el("span", {class: "sw", style: `background:${c}`}), document.createTextNode(`${f(edges[i])} to ${f(edges[i + 1])}`))));
-    note.textContent = "Local laws per 100,000 people, using the census population averaged over the period. Small provinces such as Batanes rank high because each law weighs more there.";
+    note.textContent = "Local laws per 100,000 people, using the average census population over the period. Batanes and other small provinces rank high mainly because they have so few people.";
   }
 
   /* ---------- hover and select ---------- */
@@ -314,10 +314,10 @@
     if (selProv) return pickProv(selProv);
     panel.replaceChildren(
       B.el("p", {class: "eyebrow small", text: "Select a town or a province"}),
-      B.el("h3", {text: view === "dots" ? "Start anywhere" : "Per person"}),
+      B.el("h3", {text: view === "dots" ? "Towns" : "Per person"}),
       B.el("p", {class: "muted", text: view === "dots"
-        ? "Hover over or tap the map to see a town's laws, and select it to list them. The biggest clusters are cities that are also provincial or regional centres."
-        : "Provinces shaded by local laws per 100,000 people. Select one to see its laws and the towns they name."}),
+        ? "Hover over or tap a town to see its laws, and click it to list them. The largest clusters are mostly provincial and regional centres."
+        : "Provinces are shaded by local laws per 100,000 people. Click one to see its laws."}),
       B.el("div", {id: "rankings"}));
     const box = B.$("#rankings");
     if (view === "dots") {

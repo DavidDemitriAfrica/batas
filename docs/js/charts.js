@@ -20,17 +20,17 @@
   /* ---------------- waves: small multiples ---------------- */
   const FASHION = {
     new_schools: {fam: 0, cap: "Peaks in the 14th Congress, when annexes were split into new high schools."},
-    school_names: {fam: 0, cap: "Naming a school after a person: common before 1972 and in 1987 to 1992."},
-    colleges: {fam: 0, cap: "New campuses return after tuition at state universities and colleges became free in 2017."},
-    beds: {fam: 1, cap: "290 laws in the 8th Congress alone, and a second wave after 2016."},
-    new_hospitals: {fam: 1, cap: "Emergency and municipal hospitals were a staple before 1972."},
+    school_names: {fam: 0, cap: "Usually renamed after a person. Common before 1972 and again from 1987 to 1992."},
+    colleges: {fam: 0, cap: "Up sharply in the 17th Congress, which made tuition at these schools free in 2017."},
+    beds: {fam: 1, cap: "290 laws in the 8th Congress, and many more again after 2016."},
+    new_hospitals: {fam: 1, cap: "Mostly emergency and municipal hospitals, before 1972."},
     national_roads: {fam: 3, cap: "Making a road national moves its upkeep to the national budget."},
-    franchises: {fam: 5, cap: "Power plants, phone lines and radio stations each got a law; broadcasters and telecoms still do."},
-    holidays: {fam: 4, cap: "A town's founding day as a special non-working holiday."},
-    courts: {fam: 4, cap: "New trial court branches for particular towns, in bursts."},
-    barangays: {fam: 2, cap: "Falls after the 1959 Barrio Charter let provincial boards create barrios."},
+    franchises: {fam: 5, cap: "Once given to power plants and phone lines too. Now mostly broadcasters and telecoms."},
+    holidays: {fam: 4, cap: "Usually a town's founding anniversary, made a special non-working day."},
+    courts: {fam: 4, cap: "New trial court branches, added a few Congresses at a time."},
+    barangays: {fam: 2, cap: "Drops after the 1959 Barrio Charter let provincial boards create barrios."},
     cityhood: {fam: 2, cap: "Towns turned into cities, mostly from 1995 to 2007."},
-    renamed_places: {fam: 2, cap: "The same charter let provincial boards rename barrios too."},
+    renamed_places: {fam: 2, cap: "The same charter let provincial boards rename barrios."},
   };
   C.multiples = function () {
     const wrap = B.$("#multiples"); wrap.replaceChildren();
@@ -182,7 +182,7 @@
     const other = billScope === "local" ? "national" : "local";
     const fo = d3.sum(win, v => D.bills.funnel[v.c]["filed_" + other] || 0), eo = d3.sum(win, v => D.bills.funnel[v.c]["enacted_" + other] || 0);
     B.$("#billnote").textContent = `From the 13th to the 19th Congress, ${pct1(en / f)} of ${billScope} House bills became law, ` +
-      `against ${pct1(eo / fo)} of ${other} bills. Local bills are short and rarely contested, so they pass far more often. The 20th Congress is still in session.`;
+      `compared with ${pct1(eo / fo)} of ${other} bills. The 20th Congress is still in session.`;
     B.table(B.$("#billtable"), ["Congress", "Local filed", "Local enacted", "National filed", "National enacted"],
       cs.map(c => { const d = D.bills.funnel[c]; return [`${ord(c)} (${B.CONG_YEARS[c]})`, d.filed_local || 0, linked(c) ? (d.enacted_local || 0) : "", d.filed_national || 0, linked(c) ? (d.enacted_national || 0) : ""]; }));
   };
@@ -289,8 +289,8 @@
       const go = () => { bar.firstChild.style.width = (frac * 100).toFixed(1) + "%"; };
       if (B.reduced) go(); else B.whenVisible(side, () => setTimeout(go, 150), "-60px");
     };
-    mk(leg, `beds promised by the laws passed since 2016 for ${rec.length} hospitals`, 1, B.tok("--f1"));
-    mk(acc, `beds PhilHealth accredits at those hospitals today, ${pct(acc / leg)} of the promise`, acc / leg, B.tok("--ink-2"));
+    mk(leg, `beds set by laws passed since 2016 for ${rec.length} hospitals`, 1, B.tok("--f1"));
+    mk(acc, `beds PhilHealth accredits at those hospitals, ${pct(acc / leg)} of that number`, acc / leg, B.tok("--ink-2"));
   };
   C.beds = function () {
     const el = B.$("#bedchart");
@@ -514,7 +514,7 @@
       svg.append("text").attr("x", Math.max(m.l, x(d.share)) + 7).attr("y", cy + 15).attr("font-size", 10.5).attr("fill", B.tok("--ink-2"))
         .attr("pointer-events", "none").text(d.lapsed ? (d.share < 0.005 ? "under 1%" : pct(d.share)) : "none");
     });
-    if (L.Ramos) B.$("#lapsenote").textContent = `Fidel Ramos let ${fmt(L.Ramos.lapsed)} laws, ${pct(L.Ramos.lapsed / L.Ramos.total)} of those in his term, take effect without his signature. Most were local.`;
+    if (L.Ramos) B.$("#lapsenote").textContent = `${fmt(L.Ramos.lapsed)} laws, ${pct(L.Ramos.lapsed / L.Ramos.total)} of those passed under Fidel Ramos, took effect without his signature. Most were local.`;
   };
   C.citizens = function () {
     const ul = B.$("#citlist"); ul.replaceChildren();
