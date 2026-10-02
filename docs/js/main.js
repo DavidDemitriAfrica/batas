@@ -91,6 +91,40 @@
     const bits = [more && ["more", more], same && ["about the same", same], less && ["fewer", less]].filter(Boolean)
       .map(([w, k], i) => `${w} in ${WORDS[k] || k}${i === 0 ? (k === 1 ? " Congress" : " Congresses") : ""}`);
     B.bind("a_pattern", "family seats averaged " + (bits.length > 1 ? bits.slice(0, -1).join(", ") + ", and " + bits[bits.length - 1] : bits[0]));
+    // effort: Senate floor days, days of debate and urgent certifications, 13th to 19th Congress
+    const E = D.effort;
+    if (E) {
+      const S = E.scopes, tot = k => d3.sum(Object.values(S), s => s[k]);
+      const laws = tot("laws"), floor = tot("floor_days"), debate = tot("debate_days");
+      B.bind("e_n", fmt(E.n));
+      B.bind("e_linked", fmt(E.linked));
+      B.bind("e_loc_laws", pct(S.local.laws / laws));
+      B.bind("e_loc_floor", pct(S.local.floor_days / floor));
+      B.bind("e_loc_debate", pct(S.local.debate_days / debate));
+      B.bind("e_nat_laws", pct(S.national.laws / laws));
+      B.bind("e_nat_floor", pct(S.national.floor_days / floor));
+      B.bind("e_nat_debate", pct(S.national.debate_days / debate));
+      B.bind("e_batch", fmt(S.local.batch));
+      B.bind("e_loc_linked", fmt(S.local.linked));
+      B.bind("e_tr_loc", fmt(S.local.third_with_median));
+      B.bind("e_tr_nat", fmt(S.national.third_with_median));
+      B.bind("e_bigday", B.dateText(E.biggest_third_day[0]));
+      B.bind("e_bigday_n", fmt(E.biggest_third_day[1]));
+      const cert = tot("certified");
+      B.bind("e_cert", fmt(cert));
+      B.bind("e_cert_nat", fmt(S.national.certified));
+      const cl = E.certified_local, ys = cl.map(c => c.year);
+      const k = WORDS[cl.length] ? WORDS[cl.length][0].toUpperCase() + WORDS[cl.length].slice(1) : fmt(cl.length);
+      B.bind("e_cert_local", !cl.length ? "None were local." : cl.length === 1 ? `One was local, from ${ys[0]}.`
+        : `${k} were local, all from ${d3.min(ys)} to ${d3.max(ys)}.`);
+      B.bind("e_cert_share", pct(cert / laws));
+      B.bind("e_cert_floor", pct(E.certified_floor_days / floor));
+      B.bind("e_cert_debate", pct(E.certified_debate_days / debate));
+      const cs = E.certified_sources;
+      B.bind("e_pllo_both", fmt(cs.both || 0));
+      B.bind("e_pllo_n", fmt((cs.both || 0) + (cs.PLLO || 0)));
+      B.bind("e_pllo_only", fmt(cs.PLLO || 0));
+    }
     // calendar
     const dated = rows.filter(r => r[1]);
     const pre = dated.filter(r => +r[1].slice(0, 4) <= 1972), post = dated.filter(r => +r[1].slice(0, 4) >= 1987);
@@ -110,7 +144,7 @@
     }
   }
 
-  const files = ["laws", "provinces", "bills", "calendar", "hospitals", "schools", "authors", "fashions", "odd", "stats", "validation"];
+  const files = ["laws", "provinces", "bills", "calendar", "hospitals", "schools", "authors", "fashions", "odd", "stats", "validation", "effort"];
   Promise.all([...files.map(f => fetch(`data/${f}.json`).then(r => (r.ok ? r.json() : null))), fetch("provinces.topojson").then(r => r.json())])
     .then(res => {
       const D = {};

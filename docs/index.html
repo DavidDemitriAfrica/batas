@@ -6,7 +6,7 @@
 <title>Batas: what does the Philippine Congress actually pass?</title>
 <meta name="description" content="Every Republic Act since 1946, sorted by what it does and put on the map. Six in ten are about a single named place: a school, a hospital, a road, a barangay.">
 <meta property="og:title" content="Batas: what does the Philippine Congress actually pass?">
-<meta property="og:description" content="12,322 Republic Acts since 1946. Six in ten are about one named place. An atlas of Philippine law: where the laws go, whether the schools and hospitals they promise exist, and who writes them.">
+<meta property="og:description" content="12,322 Republic Acts since 1946. Six in ten are about one named place. Where the laws go, whether the schools and hospitals they promise exist, how much of the Senate's time they take, and who writes them.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://daviddemitriafrica.github.io/batas/">
 <meta property="og:image" content="https://daviddemitriafrica.github.io/batas/assets/hero.png">
@@ -29,6 +29,7 @@
     <a href="#explore">Map</a>
     <a href="#waves">Waves</a>
     <a href="#bills">Bills</a>
+    <a href="#effort">Effort</a>
     <a href="#promises">Promises</a>
     <a href="#authors">Authors</a>
     <a href="#calendar">Calendar</a>
@@ -50,7 +51,7 @@
   <div class="steps">
     <div class="step hero" data-step="0">
       <div class="card herocard">
-        <p class="kicker">Batas &middot; an atlas of Philippine law</p>
+        <p class="kicker">Batas &middot; Philippine laws, 1946 to 2026</p>
         <h1>What does the Philippine Congress <em>actually</em> pass?</h1>
         <p class="dek">Every Republic Act since 1946, <b data-bind="n_laws">12,322</b> of them, sorted by what
           it does. <strong>Six in ten are about a single named place</strong>: one school, one hospital,
@@ -63,16 +64,17 @@
         <p class="stepno">01</p>
         <p>Each dot is one Republic Act, stacked in the year it was approved, from July 1946 to
           September 2026.</p>
-        <p>The gap runs from martial law in 1972 to the new Congress of 1987: there was no Congress
-          in between, and no Republic Acts. The busiest year was <b data-bind="top_year">1969</b>, with <b data-bind="top_year_n">668</b> laws.</p>
+        <p>There are none from 1973 to 1986. Marcos closed Congress when he declared martial law in 1972,
+          and the next Congress did not sit until 1987. The busiest year was <b data-bind="top_year">1969</b>,
+          with <b data-bind="top_year_n">668</b> laws.</p>
       </div>
     </div>
     <div class="step" data-step="2">
       <div class="card">
         <p class="stepno">02</p>
-        <p>Sort the dots by what each law does. Only <b class="hl hl-national" data-bind="national">3,028</b>,
-          about one law in four, are <strong>national</strong>: a budget, a tax, a code, a new agency, a
-          right that applies to everyone.</p>
+        <p>Here the laws are grouped by what they do. Only <b class="hl hl-national" data-bind="national">3,032</b>,
+          about one in four, are <strong>national</strong>: a budget, a tax, a code, a new agency, a
+          right that applies everywhere.</p>
       </div>
     </div>
     <div class="step" data-step="3">
@@ -86,25 +88,28 @@
     <div class="step" data-step="4">
       <div class="card">
         <p class="stepno">04</p>
-        <p>The other <b class="hl hl-local" data-bind="local">7,427</b>, six in ten, are about
+        <p>The other <b class="hl hl-local" data-bind="local">7,423</b>, six in ten, are about
           <strong>one named place</strong>: a high school in a barangay, more beds for a district
-          hospital, a national road, a new barangay, a town's founding day off.</p>
+          hospital, a national road, a new barangay, a holiday for a town's founding day.</p>
+        <p>That is by count. Since 2004, national laws have taken up
+          <b data-bind="e_nat_debate">71%</b> of the days the Senate spent debating bills that became law
+          (<a href="#effort">Effort</a>).</p>
       </div>
     </div>
     <div class="step" data-step="5">
       <div class="card">
         <p class="stepno">05</p>
-        <p>Most of these laws name their town, so we can put each one where it belongs.
-          <b data-bind="placed">6,762</b> local laws, <b data-bind="placed_town">5,866</b> of them placed
-          at a town they name, draw the country.</p>
-        <p>Each cluster is a town: the bigger it is, the more laws name it.
+        <p>Most of these laws name a town, so we can put them on a map. <b data-bind="placed">6,762</b>
+          local laws are placed, <b data-bind="placed_town">5,866</b> of them at a town named in the
+          title.</p>
+        <p>Each cluster is a town, sized by the number of laws that name it.
           <span data-bind="top_towns">Manila and Quezon City lead, with 63 laws each.</span></p>
       </div>
     </div>
     <div class="step" data-step="6">
       <div class="card">
         <p class="stepno">06</p>
-        <p>The biggest kind is <strong class="hl hl-education">schools</strong>. <b data-bind="education">3,050</b>
+        <p>The biggest group is <strong class="hl hl-education">schools</strong>. <b data-bind="education">3,050</b>
           laws create a high school, split an annex from its parent school, turn a school into a
           college, or rename one after someone.</p>
       </div>
@@ -112,19 +117,19 @@
     <div class="step" data-step="7">
       <div class="card">
         <p class="stepno">07</p>
-        <p>The mix changes from one Congress to the next. The first Congress under the 1987
-          Constitution, the <b>8th</b> (1987 to 1992), passed <b data-bind="c8_n">999</b> laws, <b data-bind="c8_local">79%</b>
-          of them local. The <b>14th</b> (2007 to 2010) went further: <b data-bind="c14_local">84%</b>.</p>
+        <p>The mix changes from one Congress to the next. The 8th Congress (1987 to 1992), the first
+          under the 1987 Constitution, passed <b data-bind="c8_n">999</b> laws, <b data-bind="c8_local">79%</b>
+          of them local. The <b>14th</b> (2007 to 2010) reached <b data-bind="c14_local">84%</b>.</p>
       </div>
     </div>
     <div class="step" data-step="8">
       <div class="card">
         <p class="stepno">08</p>
-        <p>And laws arrive in batches. Here every law sits on the day it was approved, stacked
+        <p>Laws are also signed in batches. Here each law sits on the day it was approved, stacked
           with the others from that day.</p>
         <p>Before martial law, Congress sent its bills to the President at the end of each session
           in May, and most were signed in June. On <b data-bind="big_day">June 21, 1969</b>,
-          <b data-bind="big_day_n">506</b> laws were approved in a single day.</p>
+          <b data-bind="big_day_n">506</b> laws were approved.</p>
       </div>
     </div>
   </div>
@@ -136,9 +141,9 @@
     <div class="wrap">
       <p class="eyebrow">Explore</p>
       <h2>Every local law, at the place it names</h2>
-      <p class="lede">Search for a town to read every law that names it, or pick a kind of law to
-        see where it goes. Provinces that were split after a law passed have the law's weight
-        shared across today's provinces.</p>
+      <p class="lede">Search for a town to read the laws that name it, or pick a kind of law to see
+        where it goes. When a province has been split since a law passed, the law is divided among
+        today's provinces.</p>
     </div>
     <div class="wrap wide">
       <div class="explorer">
@@ -163,7 +168,7 @@
         </div>
         <aside class="explorer-panel" id="placepanel" aria-live="polite">
           <p class="eyebrow small">Select a town or a province</p>
-          <h3>Start anywhere</h3>
+          <h3>Towns and provinces</h3>
           <p class="muted">Hover over or tap the map to see a town's laws, and select it to list them. In
             the per-person view, provinces are shaded by local laws per 100,000 people.</p>
           <div id="rankings"></div>
@@ -177,12 +182,12 @@
   <section class="chapter" id="waves">
     <div class="wrap">
       <p class="eyebrow">Waves</p>
-      <h2>Laws come in fashions</h2>
-      <p class="lede">Inside the local share, particular kinds of law rise and fall together,
-        Congress by Congress. The waves usually follow a change in who is allowed to decide, or
-        in what the national budget will pay for.</p>
-      <p>When the Barrio Charter of 1959 let provincial boards create and rename barrios, Congress
-        mostly stopped doing either. When a 2017 law made tuition free at state universities and
+      <h2>Kinds of local law, Congress by Congress</h2>
+      <p class="lede">Some kinds of local law rise and fall together from one Congress to the next.
+        The changes usually follow a change in who has the power to decide, or in what the national
+        budget pays for.</p>
+      <p>After the Barrio Charter of 1959 let provincial boards create and rename barrios, Congress
+        mostly stopped doing either. After a 2017 law made tuition free at state universities and
         colleges, laws for new campuses came back. Between the 13th and 14th Congresses, the
         number of laws splitting annexes from their parent high schools went from <b data-bind="sep13">2</b> to <b data-bind="sep14">151</b>.</p>
     </div>
@@ -198,20 +203,19 @@
   <section class="chapter" id="bills">
     <div class="wrap">
       <p class="eyebrow">Bills</p>
-      <h2>Filed, then mostly forgotten</h2>
-      <p class="lede">Laws are the survivors. BetterGov's open record of the House of Representatives
-        lists every House bill filed since 1987, <b data-bind="n_bills">143,156</b> of them. We
-        sorted their titles with the same rules we used for the laws.</p>
-      <p>The first Congress under the 1987 Constitution stands out. Its members filed
+      <h2>Most bills never become law</h2>
+      <p class="lede">BetterGov's open record of the House of Representatives lists every House bill
+        filed since 1987, <b data-bind="n_bills">143,156</b> of them. We sorted their titles with the
+        same rules we used for the laws.</p>
+      <p>Members of the 8th Congress, the first under the 1987 Constitution, filed
         <b data-bind="c8_bills">35,168</b> bills, and <b data-bind="c8_bills_local_share">87%</b> asked
         for something in one place: a school building, a barangay hall, a deep well, a stretch of
         concrete road. That Congress passed <b data-bind="c8_local_laws">786</b> local laws in all, so
         at most <b data-bind="c8_pass_max">3</b> in 100 of these bills became law.</p>
-      <p>The flood peaked in <b data-bind="peak_year">1988</b>, with <b data-bind="peak_local">15,182</b>
-        local bills in a single year, and had already receded by 1990, when the national budget began
-        giving each member a lump sum for projects in their district: the Countrywide Development
-        Fund, later the PDAF. No year since has come close; the most was
-        <b data-bind="peak_after">5,285</b>.</p>
+      <p>Local bill filings peaked in <b data-bind="peak_year">1988</b>, at <b data-bind="peak_local">15,181</b>,
+        and had fallen by 1990, the year the national budget began giving each member a lump sum for
+        projects in their district: the Countrywide Development Fund, later the PDAF. No year since has
+        had more than <b data-bind="peak_after">5,284</b>.</p>
     </div>
     <div class="wrap wide">
       <figure class="panel dark" id="wafflepanel">
@@ -223,7 +227,7 @@
         <div class="legend" id="wafflelegend"></div>
         <div class="chart" id="waffle" role="img" aria-label="Waffle chart of 35,168 House bills filed in the 8th Congress. 30,509 are local; the number of local laws passed, 786, is highlighted."></div>
         <div class="wish">
-          <p class="eyebrow small">From the wish list</p>
+          <p class="eyebrow small">A local bill from the 8th Congress</p>
           <p class="wishtext" id="wish" aria-live="polite"></p>
           <button type="button" class="ghostbtn" id="wishnext">Another bill</button>
         </div>
@@ -246,9 +250,9 @@
         </figure>
         <figure class="panel">
           <figcaption>
-            <h3>Day one</h3>
-            <p class="sub">House bills filed per day in the first 60 days of a new Congress. Members
-              file their priority bills the day their terms begin, weeks before the first session.</p>
+            <h3>The first 60 days of a Congress</h3>
+            <p class="sub">House bills filed per day. Members file their priority bills the day their
+              terms begin, weeks before the first session.</p>
           </figcaption>
           <div class="seg" role="group" aria-label="Congress">
             <button type="button" data-day="17" aria-pressed="false">17th, 2016</button>
@@ -261,24 +265,87 @@
     </div>
   </section>
 
+  <!-- ===================== effort ===================== -->
+  <section class="chapter" id="effort">
+    <div class="wrap">
+      <p class="eyebrow">Effort</p>
+      <h2>Counting the Senate's time instead of laws</h2>
+      <p class="lede">A count of laws gives a renamed school the same weight as the national budget.
+        The Senate's record shows how long each bill spent on the floor, so we can weigh laws by that
+        instead. It starts with the 13th Congress, so this section covers the 13th to the 19th (2004 to
+        2025): <b data-bind="e_n">2,980</b> laws, of which we traced <b data-bind="e_linked">2,938</b> to
+        the Senate record.</p>
+      <p>Local laws were <b data-bind="e_loc_laws">71%</b> of the laws passed in those years. They took
+        <b data-bind="e_loc_floor">59%</b> of the Senate's floor days and <b data-bind="e_loc_debate">24%</b>
+        of its days of debate. National laws were <b data-bind="e_nat_laws">20%</b> of the laws,
+        <b data-bind="e_nat_floor">32%</b> of the floor days and <b data-bind="e_nat_debate">71%</b> of
+        the days of debate.</p>
+    </div>
+    <div class="wrap wide">
+      <figure class="panel">
+        <figcaption>
+          <h3>Share of laws, Senate floor days, days of debate and urgent certifications</h3>
+          <p class="sub">Laws enacted from the 13th to the 19th Congress, 2004 to 2025, split by kind of
+            law.</p>
+        </figcaption>
+        <div class="chart" id="effortchart"></div>
+        <p class="note">A floor day is a day on which the Senate took up the bill after first reading:
+          a sponsorship speech, questions from other senators, amendments, the votes on second and third
+          reading, or the conference committee report. A day of debate is a day on which a senator
+          questioned the sponsor or spoke against the bill. A day counts once for every bill taken up
+          that day.</p>
+      </figure>
+    </div>
+    <div class="wrap">
+      <p>The floor-day count favours local laws, because the Senate takes them up in groups and every
+        law in a group gets the full day. <b data-bind="e_batch">964</b> of the
+        <b data-bind="e_loc_linked">2,095</b> local laws were sponsored in a single speech covering many
+        bills, or approved with others in one motion. The median local law passed third reading on a
+        day when the Senate passed <b data-bind="e_tr_loc">24</b> bills that became law; the median
+        national law, on a day with <b data-bind="e_tr_nat">5</b>. On <b data-bind="e_bigday">January 31, 2022</b>,
+        the Senate approved <b data-bind="e_bigday_n">151</b> bills on third reading that later became law.</p>
+      <p>The President can certify a bill as urgent, which lets each chamber pass it on second and third
+        reading on the same day. <b data-bind="e_cert">121</b> laws in these years were certified, and
+        <b data-bind="e_cert_nat">111</b> of them were national. <span data-bind="e_cert_local">Ten were
+        local, all from 2007 to 2010.</span> The certified laws were <b data-bind="e_cert_share">4%</b>
+        of all laws, <b data-bind="e_cert_floor">8%</b> of the floor days and
+        <b data-bind="e_cert_debate">33%</b> of the days of debate.</p>
+    </div>
+    <div class="wrap wide">
+      <figure class="panel">
+        <figcaption>
+          <h3>The laws senators debated longest, 2004 to 2025</h3>
+          <p class="sub">Days on which a senator questioned the sponsor or spoke against the bill, and
+            all days the bill was on the floor.</p>
+        </figcaption>
+        <ul class="lawlist" id="effortlist"></ul>
+      </figure>
+      <p class="note wrapnote">Certifications come from the Senate record and from lists published by
+        the Presidential Legislative Liaison Office for the 18th and 19th Congresses. The two agree on
+        <span data-bind="e_pllo_both">31</span> of the <span data-bind="e_pllo_n">35</span> laws on the
+        office's lists; the other <span data-bind="e_pllo_only">4</span> were certified to the House only.
+        The House record has no comparable floor history, so the House's time is not counted.</p>
+    </div>
+  </section>
+
   <!-- ===================== promises ===================== -->
   <section class="chapter" id="promises">
     <div class="wrap">
       <p class="eyebrow">Promises</p>
-      <h2>Beds on paper</h2>
-      <p class="lede">A law that raises a hospital's bed capacity does not build a ward. The money has
-        to come later, from the budget. So we checked every such law against PhilHealth's list of
-        accredited hospitals, which gives the beds each hospital actually runs.</p>
+      <h2>Hospital beds the laws promise</h2>
+      <p class="lede">A law that raises a hospital's bed capacity does not pay for the beds; the money
+        has to come later, in the budget. We checked each of these laws against PhilHealth's list of
+        accredited hospitals, which gives the number of beds each hospital runs.</p>
     </div>
     <div class="wrap wide">
       <div class="bigcompare" id="bedsummary" aria-hidden="true"></div>
     </div>
     <div class="wrap">
-      <p>We matched <b data-bind="h_n">52</b> government hospitals whose bed capacity Congress raised
-        by law since 2016. <b data-bind="h_below">46</b> of them are accredited today for fewer beds
-        than their law says. The newest laws have had little time to take effect, so look at the older
-        ones: of the <b data-bind="h_old">43</b> hospitals whose law passed from 2016 to 2022,
-        <b data-bind="h_oldbelow">37</b> are still below it.</p>
+      <p>We matched <b data-bind="h_n">53</b> government hospitals whose bed capacity Congress raised
+        by law since 2016. <b data-bind="h_below">47</b> of them are accredited today for fewer beds
+        than their law says. Laws from 2023 on have had little time to take effect, but the older ones
+        show the same gap: of the <b data-bind="h_old">44</b> hospitals whose law passed from 2016 to
+        2022, <b data-bind="h_oldbelow">38</b> are still below it.</p>
     </div>
     <div class="wrap wide">
       <figure class="panel">
@@ -300,23 +367,20 @@
         <div class="chart" id="bedchart"></div>
         <details class="table"><summary>Show as a table</summary><div class="tablewrap" id="bedtable"></div></details>
       </figure>
-      <p class="note wrapnote">A gap is not proof that nothing happened. Hospitals grow in stages, and
-        PhilHealth accredits the beds that are licensed and in use, not the ones a law allows. But the
-        gaps are large and recent, which suggests many of these laws passed without the money to
-        carry them out.</p>
+      <p class="note wrapnote">A gap does not prove that nothing was built. Hospitals grow in stages, and
+        PhilHealth accredits only beds that are licensed and in use. Still, the gaps are large, which
+        suggests that many of these laws passed without the money to carry them out.</p>
     </div>
     <div class="wrap">
-      <h2 class="h2b">Schools: mostly real, often already there</h2>
-      <p>School laws hold up better. Of the <b data-bind="s_n">1,557</b> laws from 1987 to 2023 that
-        established, separated or converted a public school, we found the school the law names, in the
-        right town, in DepEd's lists for <b data-bind="s_named">85%</b>. We could not find
-        <b data-bind="s_nf">5%</b>.</p>
-      <p>The telling number is about timing. DepEd's lists begin in 2017, so for laws passed since
-        2019 we can see whether the school existed before the law. Of the <b data-bind="s_recent">107</b>
-        we matched, <b data-bind="s_pre">68%</b> were in DepEd's list before the law was approved,
-        including <b data-bind="s_est_pre">22</b> of the <b data-bind="s_est_n">35</b> laws that
-        "establish" a school. Many school laws give a new status or name to a school that is
-        already running.</p>
+      <h2 class="h2b">Most school laws name a real school, often one already open</h2>
+      <p>Of the <b data-bind="s_n">1,557</b> laws from 1987 to 2023 that established, separated or
+        converted a public school, we found the school the law names, in the right town, in DepEd's
+        lists for <b data-bind="s_named">85%</b>. We could not find <b data-bind="s_nf">5%</b>.</p>
+      <p>DepEd's lists begin in 2017, so for laws passed since 2019 we can also see whether the school
+        existed before the law. Of the <b data-bind="s_recent">107</b> we matched,
+        <b data-bind="s_pre">68%</b> were in DepEd's list before the law was approved, including
+        <b data-bind="s_est_pre">22</b> of the <b data-bind="s_est_n">35</b> laws that "establish" a
+        school. Many school laws give a new status or name to a school that is already running.</p>
     </div>
     <div class="wrap wide">
       <figure class="panel">
@@ -335,22 +399,22 @@
   <section class="chapter" id="authors">
     <div class="wrap">
       <p class="eyebrow">Authors</p>
-      <h2>Who writes them</h2>
+      <h2>Who writes local laws</h2>
       <p class="lede">For bills filed since 2004, the House record names a principal author. We
-        linked <b data-bind="a_laws">2,097</b> local laws to the House bill they came from, and
-        <b data-bind="a_laws_district">1,748</b> of them to a district representative in OpenHalalan's
-        record of winners, which tells us the province they represent.</p>
-      <p>A common claim is that political families use laws like these to reward their base. We can
-        test a simple version. A seat is a <strong>family seat</strong> when someone else with the
+        linked <b data-bind="a_laws">2,095</b> local laws to the House bill they came from, and
+        <b data-bind="a_laws_district">1,746</b> of them to a district representative in OpenHalalan's
+        record of winners, which gives the province they represent.</p>
+      <p>A common claim is that political families use laws like these to reward their base. We tested
+        a simple version of it. A seat is a <strong>family seat</strong> when someone else with the
         representative's surname won the governorship, the vice governorship, another House seat, or
         a mayoralty in the same province in the same election, or held a House seat there in one of
-        the two elections before. By this rule <b data-bind="a_famshare">49%</b> of district terms
+        the two elections before. By this rule <b data-bind="a_famshare">50%</b> of district terms
         were family seats.</p>
       <p><strong>Family seats did not produce more local laws.</strong> Representatives in family
         seats were the principal authors of <b data-bind="a_fam">1.21</b> local laws per term.
-        Other representatives averaged <b data-bind="a_oth">1.37</b>. The intervals overlap, and the
+        Other representatives averaged <b data-bind="a_oth">1.30</b>. The intervals overlap, and the
         gap is not consistent from one Congress to the next: <span data-bind="a_pattern">family seats
-        averaged more in one Congress, about the same in two, and fewer in four</span>.</p>
+        averaged more in two Congresses, about the same in two, and fewer in three</span>.</p>
     </div>
     <div class="wrap wide">
       <div class="grid2">
@@ -376,17 +440,17 @@
       </div>
       <figure class="panel">
         <figcaption>
-          <h3>The most prolific authors of local laws, 2004 to 2025</h3>
+          <h3>The members who authored the most local laws, 2004 to 2025</h3>
           <p class="sub">Enacted local laws with the member as principal author. The province is
-            where most of their laws are. This is a count, not a judgement: many of these laws created
-            schools that districts needed.</p>
+            where most of their laws are. Many of these laws created schools that their districts
+            needed.</p>
         </figcaption>
         <div class="chart" id="topauthors"></div>
       </figure>
       <p class="note wrapnote">Surnames are a rough marker of kinship. Unrelated people can share a
         common surname, and relatives can have different ones. OpenHalalan's records for 2004 to 2013
-        come from an older source that could not be checked against ballots. We report averages over
-        many seats, not claims about any one person.</p>
+        come from an older source that could not be checked against ballots. The figures are averages
+        over many seats and say nothing about any one representative.</p>
     </div>
   </section>
 
@@ -394,7 +458,7 @@
   <section class="chapter" id="calendar">
     <div class="wrap">
       <p class="eyebrow">Calendar</p>
-      <h2>Eighty years of signing days</h2>
+      <h2>When laws are signed</h2>
       <p class="lede"><b data-bind="june_pre">84%</b> of laws before martial law were approved in June,
         after each regular session closed in May. Since 1987 the share is
         <b data-bind="june_post">10%</b>, and laws are signed all year.</p>
@@ -451,7 +515,11 @@
               Virtual Law Library</a>, and <span data-bind="n_house">22</span> that neither library has, including eight
               national budgets, from the House record.</li>
             <li><a href="https://github.com/bettergovph/open-congress-data">BetterGov open-congress-data</a>:
-              every House bill since 1987, its author and its history (CC0).</li>
+              every House bill since 1987, its author and its history, and the Senate's floor history of
+              each bill since 2004 (CC0).</li>
+            <li>Presidential Legislative Liaison Office: bills certified for immediate enactment in the 18th
+              and 19th Congresses, from <a href="https://web.archive.org/web/2025/https://www.pllo.gov.ph/index.php/downloads/priority-legislative-measures">the
+              Internet Archive's copy</a> of its site.</li>
             <li><a href="https://robertrleung.github.io/OpenHalalan/">OpenHalalan</a> (Leung, Alejandro,
               Acuna, Buot, Go and Nable 2026): winners of House, provincial and municipal races (ODbL).</li>
             <li><a href="https://www.deped.gov.ph/machine-ready-files/">DepEd machine-ready files</a>:
@@ -479,14 +547,16 @@
             date.</p>
         </div>
         <div class="mcard">
-          <h3>What this cannot tell you</h3>
+          <h3>Limits</h3>
           <ul>
             <li>Titles describe laws, not their effects. A law can be local in title and national in
               effect, and the reverse.</li>
-            <li><span data-bind="n_missing">3</span> act numbers are in no source we could find.</li>
+            <li><span data-bind="n_missing">Three</span> act numbers are in no source we could find.</li>
             <li>Vetoed bills, and bills that died in the Senate, appear only through the House record.</li>
             <li>A school or hospital we did not find may exist under another name, or in a list we did
               not check.</li>
+            <li>Floor days and days of debate cover the Senate from 2004 on. The House record has no
+              comparable history.</li>
             <li>Authors and family seats cover the 13th to 19th Congresses and the district
               representatives we could match to OpenHalalan's list of winners. Party-list members are
               not included.</li>
@@ -500,6 +570,8 @@
             <li><a href="https://github.com/DavidDemitriAfrica/batas/blob/main/data/clean/school_laws.csv">school_laws.csv</a>
               and <a href="https://github.com/DavidDemitriAfrica/batas/blob/main/data/clean/hospital_laws.csv">hospital_laws.csv</a>:
               each law with the school or hospital we matched.</li>
+            <li><a href="https://github.com/DavidDemitriAfrica/batas/blob/main/data/clean/law_effort.csv">law_effort.csv</a>:
+              Senate floor days, days of debate and urgent certification for each law since 2004.</li>
             <li><a href="https://github.com/DavidDemitriAfrica/batas/blob/main/data/clean/law_authors.csv">law_authors.csv</a>
               and <a href="https://github.com/DavidDemitriAfrica/batas/blob/main/data/clean/rep_terms.csv">rep_terms.csv</a>:
               authors and representative terms.</li>
@@ -527,8 +599,9 @@
 <footer>
   <div class="wrap">
     <p>Law texts from the <a href="https://lawphil.net">LawPhil Project</a> and the
-      <a href="https://laws.chanrobles.com">Chan Robles Virtual Law Library</a>. House bills from
-      <a href="https://github.com/bettergovph/open-congress-data">BetterGov</a> (CC0). Election winners from
+      <a href="https://laws.chanrobles.com">Chan Robles Virtual Law Library</a>. House and Senate records from
+      <a href="https://github.com/bettergovph/open-congress-data">BetterGov</a> (CC0). Urgent certifications from
+      the Presidential Legislative Liaison Office. Election winners from
       <a href="https://robertrleung.github.io/OpenHalalan/">OpenHalalan</a> (ODbL). Schools from DepEd,
       hospitals from PhilHealth, towns and populations from the PSA through the
       <a href="https://github.com/DavidDemitriAfrica/philippines-internal-migration">Philippine Internal Migration Dataset</a>,

@@ -322,6 +322,36 @@ def main():
     extra["examples_8th"] = examples
     dump("bills.json", extra)
 
+    # ---- effort: Senate floor days, days of debate and urgent certifications, 13th to 19th Congress
+    eff = [r for r in csv.DictReader(open(CLEAN / "law_effort.csv")) if 13 <= int(r["congress"]) <= 19]
+    scopes = {}
+    for s in ("local", "private", "national"):
+        rs = [r for r in eff if r["scope"] == s]
+        lk = [r for r in rs if r["senate_records"]]
+        tr = sorted(int(r["third_reading_with"]) for r in lk if r["third_reading_with"])
+        scopes[s] = {"laws": len(rs), "linked": len(lk),
+                     "floor_days": sum(int(r["floor_days"]) for r in lk),
+                     "debate_days": sum(int(r["debate_days"]) for r in lk),
+                     "debated": sum(1 for r in lk if int(r["debate_days"])),
+                     "certified": sum(1 for r in rs if r["certified"]),
+                     "batch": sum(1 for r in lk if r["batch"]),
+                     "third_with_median": tr[len(tr) // 2] if tr else None}
+    third_days = Counter(r["third_reading"] for r in eff if r["third_reading"])
+    top_eff = sorted((r for r in eff if r["senate_records"]), key=lambda r: (-int(r["debate_days"]), -int(r["floor_days"])))[:12]
+    cert = [r for r in eff if r["certified"] and r["senate_records"]]
+    dump("effort.json", {
+        "n": len(eff), "linked": sum(1 for r in eff if r["senate_records"]), "scopes": scopes,
+        "certified_sources": dict(Counter(r["certified_source"] for r in eff if r["certified"])),
+        "certified_floor_days": sum(int(r["floor_days"]) for r in cert),
+        "certified_debate_days": sum(int(r["debate_days"]) for r in cert),
+        "certified_local": [{"ra": int(r["ra"]), "year": law_by_ra[int(r["ra"])]["year"], "title": law_by_ra[int(r["ra"])]["title"]}
+                            for r in eff if r["certified"] and r["scope"] == "local"],
+        "biggest_third_day": third_days.most_common(1)[0],
+        "top": [{"ra": int(r["ra"]), "title": law_by_ra[int(r["ra"])]["title"], "year": law_by_ra[int(r["ra"])]["year"],
+                 "floor_days": int(r["floor_days"]), "debate_days": int(r["debate_days"]), "certified": bool(r["certified"])}
+                for r in top_eff],
+    })
+
     # ---- odd corners
     cit = [{"ra": L["ra"], "year": L["year"], "name": re.sub(r"(?i)^.*citizenship to\s+", "", L["title"])}
            for L in laws if L["category"] == "citizenship"]

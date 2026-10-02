@@ -158,6 +158,26 @@ surname, and relatives can have different ones. OpenHalalan's 2004 to 2013
 records come from an older source that its authors could not check against
 ballots.
 
+## law_effort.csv
+
+One row per Republic Act from the 13th Congress on (2,992 acts), with the time
+the Senate spent on it and whether the President certified it as urgent. The
+floor history comes from the Senate records in BetterGov's open-congress-data,
+which begin with the 13th Congress; the House record has no comparable history.
+An act is linked to every Senate record (Senate bill, or House bill sent to the
+Senate) whose history ends in that act, or that the act cites in its closing
+clause.
+
+| Column | What it is |
+|---|---|
+| `senate_records` | The linked Senate records, as `SB-<congress>-<number>` or `HB-<congress>-<number>`. Blank for 54 acts with no Senate record |
+| `floor_days` | Days on which the Senate took the bill up after first reading: a sponsorship speech, interpellation, a period of amendments, the vote on second or third reading, or the conference committee report. A day counts once for every bill taken up that day |
+| `debate_days` | Days on which a senator interpellated the sponsor or spoke against the bill (*turno en contra*) |
+| `third_reading`, `third_reading_with` | The date the Senate approved the bill on third reading, and how many acts it approved on third reading that day, this one included |
+| `batch` | `yes` when the bill was sponsored in an omnibus speech covering several bills, or approved with others in a single motion |
+| `certified` | `yes` when the President certified the bill for immediate enactment (Article VI, Section 26(2) of the Constitution) |
+| `certified_source` | `senate record`, `PLLO` (the Presidential Legislative Liaison Office's lists for the 18th and 19th Congresses, in `data/raw/pllo/`, from the Internet Archive since pllo.gov.ph is offline), or `both`. PLLO's lists add bills certified to the House only |
+
 ## house_bills_classified.csv.gz
 
 Every House bill filed from the 8th to the 20th Congress (143,156 rows) from

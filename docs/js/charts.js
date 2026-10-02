@@ -221,6 +221,61 @@
     svg.append("line").attr("x1", m.l).attr("x2", W - m.r).attr("y1", y(0) + 0.5).attr("y2", y(0) + 0.5).attr("stroke", B.tok("--axis"));
   };
 
+  /* ---------------- effort: laws weighed by Senate time ---------------- */
+  C.effort = function () {
+    const E = D.effort, S = E.scopes;
+    const scopes = [["local", "Local", "--accent"], ["private", "Private", "--f5"], ["national", "National", "--f6"]];
+    const rows = [["laws", "Laws", "laws"], ["floor_days", "Days on the Senate floor", "floor days"],
+      ["debate_days", "Days of debate", "days of debate"], ["certified", "Laws certified urgent", "certified laws"]];
+    const el = B.$("#effortchart");
+    // on small screens the labels sit above the bars
+    const W = el.clientWidth || 900, small = W < 640, rowH = small ? 50 : 40, m = {t: 6, r: 8, b: 8, l: small ? 0 : 230};
+    const H = m.t + rowH * rows.length + m.b + 30;
+    const barY = small ? 18 : 5;
+    const svg = B.svgIn(el, W, H);
+    const x = d3.scaleLinear().domain([0, 1]).range([m.l, W - m.r]);
+    const onDark = c => d3.hsl(c).l < 0.55;
+    rows.forEach(([key, lab, unit], i) => {
+      const tot = d3.sum(scopes, s => S[s[0]][key]);
+      const cy = m.t + i * rowH;
+      svg.append("text").attr("x", small ? 0 : m.l - 12).attr("y", small ? cy + 12 : cy + 18).attr("text-anchor", small ? "start" : "end")
+        .attr("font-size", small ? 10.5 : 11.5).attr("fill", i === 0 ? B.tok("--ink") : B.tok("--ink-2"))
+        .attr("font-weight", i === 0 ? 600 : 400).text(`${lab} (${fmt(tot)})`);
+      let acc = 0;
+      scopes.forEach(([s, name, col], j) => {
+        const v = S[s][key];
+        const x0 = x(acc / tot), x1 = x((acc + v) / tot);
+        acc += v;
+        const w = Math.max(0, x1 - x0 - 2), c = B.tok(col);
+        svg.append("path").attr("d", j === scopes.length - 1 ? B.roundedRight(x0, cy + barY, w, 22, 4) : `M${x0},${cy + barY}h${w}v22h${-w}Z`).attr("fill", c)
+          .on("pointermove", e => B.showTip(e, [{cls: "tv", text: `${fmt(v)} ${unit} · ${pct(v / tot)}`}, {key: c, text: `${name} laws`}, {cls: "tm", text: lab}]))
+          .call(tipOff);
+        if (w > 34) svg.append("text").attr("x", x0 + 7).attr("y", cy + barY + 15).attr("font-size", 10.5).attr("pointer-events", "none")
+          .attr("fill", onDark(c) ? "#ffffff" : "#16140f").text(pct(v / tot));
+      });
+    });
+    let lx = small ? 0 : m.l;
+    const ly = m.t + rowH * rows.length + 16;
+    scopes.forEach(([, name, col]) => {
+      const g = svg.append("g");
+      g.append("rect").attr("x", lx).attr("y", ly - 9).attr("width", 10).attr("height", 10).attr("rx", 3).attr("fill", B.tok(col));
+      const t = g.append("text").attr("x", lx + 15).attr("y", ly).attr("font-size", 10.5).attr("fill", B.tok("--ink-2")).text(name);
+      lx += t.node().getComputedTextLength() + 34;
+    });
+  };
+  C.effortList = function () {
+    const ul = B.$("#effortlist"); ul.replaceChildren();
+    const byRa = new Map(D.laws.rows.map(r => [r[0], r]));
+    D.effort.top.forEach(t => {
+      const row = byRa.get(t.ra);
+      const li = B.el("li");
+      li.append(B.el("span", {class: "meta", text: `${t.year} · RA ${t.ra} · ${t.debate_days} days of debate, ${t.floor_days} on the floor${t.certified ? " · certified urgent" : ""}`}),
+        B.el("a", {href: row ? B.lawUrl(row) : "https://lawphil.net/statutes/repacts/repacts.html", target: "_blank", rel: "noopener",
+          text: B.shorten(t.title, 140)}));
+      ul.append(li);
+    });
+  };
+
   /* ---------------- hospitals ---------------- */
   let bedPeriod = "2016";
   C.bedSummary = function () {
@@ -481,7 +536,8 @@
     bindSeg("beds", v => { bedPeriod = v; }, C.beds);
     C.wish();
     C.citizens();
-    const all = [C.multiples, C.waffle, C.bills, C.days, C.bedSummary, C.beds, C.schools, C.family, C.topAuthors, C.calendar, C.lapsed];
+    if (D.effort) C.effortList();
+    const all = [C.multiples, C.waffle, C.bills, C.days, ...(D.effort ? [C.effort] : []), C.bedSummary, C.beds, C.schools, C.family, C.topAuthors, C.calendar, C.lapsed];
     all.forEach(f => { try { f(); } catch (e) { console.error(e); } });
     const again = () => all.forEach(f => { try { f(); } catch (e) { console.error(e); } });
     B.onResize(again);

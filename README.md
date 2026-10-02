@@ -12,12 +12,16 @@ are about a single named place: one school, one hospital, one road, one new
 barangay, one town's holiday. Since 1987 the share is seven in ten.
 
 We then put those laws on a map, followed 143,156 House bills from filing to
-law, checked the schools and hospitals the laws promise against DepEd's and
-PhilHealth's lists, and linked each law to its principal author and to
-OpenHalalan's record of who holds office in each province.
+law, weighed each law since 2004 by the days the Senate spent on it, checked the
+schools and hospitals the laws promise against DepEd's and PhilHealth's lists,
+and linked each law to its principal author and to OpenHalalan's record of who
+holds office in each province.
 
 A few findings:
 
+- From 2004 to 2025, local laws were 71% of the laws passed but took 24% of the
+  Senate's days of debate. National laws were 20% of the laws and took 71%. Of
+  the 121 laws the President certified as urgent, 111 were national.
 - We matched 53 government hospitals whose bed capacity Congress raised by law
   since 2016 to PhilHealth's list. 47 of them are accredited for fewer beds than
   the law says: 19,807 accredited beds against 32,430 promised.
@@ -59,6 +63,7 @@ cd docs && python3 -m http.server 8000   # then open http://localhost:8000
 | `school_laws.csv` | School laws matched to DepEd's school lists |
 | `hospital_laws.csv` | Hospital laws matched to PhilHealth's accredited hospitals |
 | `barangay_laws.csv` | Barangay-creation laws matched to the 2020 census |
+| `law_effort.csv` | Senate floor days, days of debate and urgent certification for each act since 2004 |
 | `law_bills.csv` | Acts linked to the House bill they came from |
 | `law_authors.csv` | Acts with their principal author |
 | `rep_terms.csv` | District representatives per Congress, with a family-seat flag |
@@ -75,15 +80,19 @@ python3 pipeline/run_all.py --no-fetch # rebuild from the files in the repo
 DepEd's and PhilHealth's files are committed in `data/raw/`, because their
 sites block requests from cloud servers. The act texts, BetterGov's bill
 records and OpenHalalan are refetched when missing; facts read from the act
-texts are cached in `data/interim/act_facts.json`, so `--no-fetch` works
-without them. Every download is logged in `data/provenance.jsonl`.
+texts are cached in `data/interim/act_facts.json` and Senate floor histories
+in `data/interim/senate_floor.json`, so `--no-fetch` works without them. The
+Presidential Legislative Liaison Office's lists of certified bills come from the
+Internet Archive, since its site is offline, and are committed in `data/raw/pllo/`. Every download is logged in `data/provenance.jsonl`.
 
 ## Sources
 
 - [LawPhil Project](https://lawphil.net) (Arellano Law Foundation), with 309
   acts missing from LawPhil taken from the [Chan Robles Virtual Law Library](https://laws.chanrobles.com)
   and 22 that neither library has taken from the House record.
-- [BetterGov open-congress-data](https://github.com/bettergovph/open-congress-data) (CC0).
+- [BetterGov open-congress-data](https://github.com/bettergovph/open-congress-data) (CC0), for House bills and the Senate's floor history.
+- Presidential Legislative Liaison Office, summaries of bills certified for immediate enactment in the
+  18th and 19th Congresses ([Internet Archive copy](https://web.archive.org/web/2025/https://www.pllo.gov.ph/index.php/downloads/priority-legislative-measures)).
 - [OpenHalalan](https://robertrleung.github.io/OpenHalalan/): Leung, R., Alejandro, A.,
   Acuna, R., Buot, J., Go, C., and Nable, J. (2026). *OpenHalalan: The Philippine
   National and Local Election Dataset.* [doi:10.5281/zenodo.17783099](https://doi.org/10.5281/zenodo.17783099) (ODbL).

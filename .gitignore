@@ -19,3 +19,4 @@ data/interim/*
 !data/interim/act_facts.json
 !data/interim/house_bills.csv.gz
 !data/interim/house_people.json
+!data/interim/senate_floor.json

@@ -18,7 +18,7 @@ sys.path.insert(0, str(HERE))
 
 STEPS_FETCH = ["fetch_laws.py --acts", "fetch_gaps.py", "house_bills.py"]
 STEPS = ["build_laws.py", "classify.py", "geocode.py", "towns.py", "deped.py", "philhealth.py", "match_schools.py",
-         "match_hospitals.py", "match_barangays.py", "authors.py", "make_site_data.py", "validate.py", "export_csv.py"]
+         "match_hospitals.py", "match_barangays.py", "authors.py", "effort.py", "make_site_data.py", "validate.py", "export_csv.py"]
 
 
 def run(step):
